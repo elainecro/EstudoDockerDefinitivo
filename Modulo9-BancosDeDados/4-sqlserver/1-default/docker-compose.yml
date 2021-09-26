@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  sqlserver_service_nane:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=SuperSecret231256*
+    ports: 
+      - 1436:1433
+    volumes:
+      - sqlserver_data:/var/opt/mssql/data
+    networks:
+        - db
+
+volumes:
+  sqlserver_data:
+    driver: local
+
+networks:
+  db:
+    driver: bridge

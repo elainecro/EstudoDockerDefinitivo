@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  sqlserver_service_nane:
+    image: luizcarlosfaria/mssql-server-linux:2017-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=SuperSecret231256*
+      - MSSQL_PID=Developer
+      - MSSQL_DATABASE=dockerdefinitivo
+      - MSSQL_USER=nane
+      - MSSQL_PASSWORD=nane123456*
+    ports: 
+      - 1435:1433
+    volumes:
+      - sqlserver_data:/var/opt/mssql/data
+    networks:
+        - db
+
+volumes:
+  sqlserver_data:
+    driver: local
+
+networks:
+  db:
+    driver: bridge
