@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  mysql_service_nane:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=nanerootpass
+      - MYSQL_DATABASE=nanedb
+      - MYSQL_USER=naneuser
+      - MYSQL_PASSWORD=nanepass
+    ports:
+      - 3306:3306
