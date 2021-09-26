@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  postgres_service_nane:
+    image: postgres:9.6.23-bullseye
+    environment:
+      - POSTGRES_DB=nanedb
+      - POSTGRES_USER=naneuser
+      - POSTGRES_PASSWORD=nanepass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+        - db
+    
+  postgres_ui:
+    image: dpage/pgadmin4:5
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=elainecro@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+    ports: 
+      - 80:80
+    networks:
+      - db
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  db:
+    driver: bridge
