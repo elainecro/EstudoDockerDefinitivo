@@ -7,7 +7,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=SuperSecret231256*
     ports: 
-      - 1436:1433
+      - 1433:1433
     volumes:
       - sqlserver_data:/var/opt/mssql/data
     networks:
